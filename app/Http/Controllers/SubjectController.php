@@ -13,9 +13,12 @@ class SubjectController extends Controller
    }
    public function insert(Request $request)
    {
+       $data = $request->input();
         $subject=new Subject;
-        $subject->name=$request->name;
-       $subject->year=$request->year;
-       $subject->specialization=$request->specialization;
+        $subject->name= $data['name'];
+       $subject->year= $data['year'];
+       $subject->specialization= $data['specialization'];
+       $subject->save();
+
    }
 }
