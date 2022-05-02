@@ -8,7 +8,7 @@ class PagesController extends Controller
 {
     public function index()
     {
-        return view('index');
+        return view('dashboard.index');
     }
     public function about()
     {
@@ -27,4 +27,5 @@ class PagesController extends Controller
     {
         return view('contact');
     }
+
 }

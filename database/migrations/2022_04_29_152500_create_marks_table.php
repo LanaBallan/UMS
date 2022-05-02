@@ -21,7 +21,7 @@ class CreateMarksTable extends Migration
             $table->Integer('theoretical_mark');
             $table->Integer('total_mark');
             $table->year('year');
-            $table->enum('semester',[1,2,3]);
+            $table->Integer('semester');
             $table->enum('status', ['نجاح','رسوب']);
             $table->timestamps();
         });

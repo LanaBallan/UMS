@@ -17,8 +17,8 @@ class CreateObjectionReqsTable extends Migration
             $table->bigIncrements('id');
             $table->boolean('status');
             $table->integer('new-mark');
-            $table->bigInteger('student-id');
-            $table->bigInteger('subject-id');
+            $table->bigInteger('mark-id');
+
             $table->timestamps();
         });
     }

@@ -16,7 +16,7 @@ class CreateSubjectsTable extends Migration
         Schema::create('subjects', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->enum('year', [1,2,3,4,5]);
+            $table->integer('year');
             $table->enum('specialization',['برمجيات','ذكاء','شبكات','علوم اساسية']);
             $table->timestamps();
         });

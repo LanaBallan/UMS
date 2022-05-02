@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 /*
@@ -19,4 +20,16 @@ Route::get("/courses", [PagesController::class, 'courses']);
 Route::get("/portfolio", [PagesController::class, 'portfolio']);
 
 Route::get("/contact", [PagesController::class, 'contact']);
+Route::get("/subject/add", [SubjectController::class, 'add']);
 
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
