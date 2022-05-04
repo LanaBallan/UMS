@@ -26,7 +26,7 @@ class Mark extends Model
 
     public function get_student()
     {
-        return $this->belongsTo('App\Models\Student', 'student_id', 'id');
+        return $this->belongsTo('App\Models\User', 'student_id', 'id');
     }
     public function get_subject()
     {

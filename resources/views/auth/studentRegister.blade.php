@@ -19,21 +19,22 @@
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="text" class="form-control form-control-user @error('email') is-invalid @enderror"
-                                               id="fname" name="fname" value="{{ old('fname') }}" required autocomplete="fname"
+                                        <input id="f-name" type="text" class="form-control form-control-user @error('f-name') is-invalid @enderror"
+                                               name="f-name" value="{{ old('f-name') }}" required autocomplete="f-name" autofocus
+                                               class="form-control form-control-user"
                                                placeholder="First Name">
-                                        @error('fname')
+                                        @error('f-name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                         @enderror
                                     </div>
                                     <div class="col-sm-6">
-                                        <input id="lname" type="text" class="form-control form-control-user @error('lname') is-invalid @enderror"
-                                               name="lname" value="{{ old('lname') }}" required autocomplete="lname"
+                                        <input id="l-name" type="text" class="form-control form-control-user @error('l-name') is-invalid @enderror"
+                                               name="l-name" value="{{ old('l-name') }}" required autocomplete="l-name"
                                                class="form-control form-control-user"
                                                placeholder="Last Name">
-                                        @error('lname')
+                                        @error('l-name')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -50,7 +51,26 @@
                                     </span>
                                     @enderror
                                 </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input id="phone" type="number" class="form-control form-control-user @error('phone') is-invalid @enderror"
+                                               name="phone" value="{{ old('phone') }}" required autocomplete="phone"
+                                               class="form-control form-control-user"
+                                               placeholder="Phone Number">
+                                        @error('phone')
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                        @enderror
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input id="photo" type="file" class="form-control form-control-user "
+                                               name="photo"  required autocomplete="photo"
+                                               class="form-control form-control-user"
+                                               placeholder="Personal Photo" accept="image/*,.pdf">
 
+                                    </div>
+                                </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
                                         <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror"
@@ -68,29 +88,6 @@
                                                placeholder="Repeat Password">
                                     </div>
                                 </div>
-<br> <h3>Choose Role</h3>
-
-
-                                <div class="form-check">
-
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="role" id="role" value="manager">Manager
-                                    </label>
-                                </div>
-                                <br>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="role" id="role" value="exam">Exam Department
-                                    </label>
-                                </div>
-                                <br>
-                                <div class="form-check">
-                                    <label class="form-check-label">
-                                        <input type="radio" class="form-check-input" name="role" id="role" value="affairs" >Affairs Department
-                                    </label>
-                                </div>
-
-                                <br><br>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     {{ __('Register Account') }}
                                 </button>

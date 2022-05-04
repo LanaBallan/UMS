@@ -56,4 +56,7 @@ class Student extends Model
     public function get_uni_info(){
         return $this->hasMany('App\Models\Uni_info','student_id','id');
     }
+    public function get_request(){
+        return $this->hasMany('App\Models\Request','student_id','id');
+    }
 }

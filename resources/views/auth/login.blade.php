@@ -22,7 +22,8 @@
                                     @csrf
                                     <div class="form-group">
 
-                                        <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}"
+                                        <input id="email" type="email" class="form-control form-control-user @error('email') is-invalid @enderror"
+                                               name="email" value="{{ old('email') }}"
                                                placeholder="Enter Email Address..."
                                                required autocomplete="email" autofocus>
                                         @error('email')

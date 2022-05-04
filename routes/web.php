@@ -14,11 +14,10 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::get("/", [PagesController::class, 'index']);
+Route::get("/", [PagesController::class, 'index'])->name('home-page');
 Route::get("/about", [PagesController::class, 'about']);
 Route::get("/courses", [PagesController::class, 'courses']);
 Route::get("/portfolio", [PagesController::class, 'portfolio']);
-
 Route::get("/contact", [PagesController::class, 'contact']);
 Route::get("/subject/add", [SubjectController::class, 'add']);
 

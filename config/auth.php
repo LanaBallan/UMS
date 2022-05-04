@@ -40,6 +40,20 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'employee1' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
+        'employee2' => [
+            'driver' => 'session',
+            'provider' => 'users',
+
+        ],
+        'student' => [
+            'driver' => 'session',
+            'provider' => 'students',
+
+        ],
     ],
 
     /*
@@ -63,6 +77,22 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
+        ],
+        'managers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+        'employee1s' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+        'employee2s' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\User::class,
+        ],
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Student::class,
         ],
 
         // 'users' => [
@@ -93,6 +123,7 @@ return [
             'expire' => 60,
             'throttle' => 60,
         ],
+
     ],
 
     /*
