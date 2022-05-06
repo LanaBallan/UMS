@@ -17,7 +17,7 @@ class CreateRequestsTable extends Migration
             $table->bigIncrements('id');
             $table->string('type');
             $table->boolean('status');
-            $table->bigInteger('student-id');
+            $table->bigInteger('student_id');
             $table->timestamps();
         });
     }

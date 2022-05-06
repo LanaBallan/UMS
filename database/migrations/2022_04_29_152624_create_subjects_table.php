@@ -18,6 +18,9 @@ class CreateSubjectsTable extends Migration
             $table->string('name');
             $table->integer('year');
             $table->enum('specialization',['برمجيات','ذكاء','شبكات','علوم اساسية']);
+            $table->integer('max_practical');
+            $table->integer('max_theoretical');
+
             $table->timestamps();
         });
     }

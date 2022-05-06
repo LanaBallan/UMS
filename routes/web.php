@@ -20,9 +20,11 @@ Route::get("/courses", [PagesController::class, 'courses']);
 Route::get("/portfolio", [PagesController::class, 'portfolio']);
 Route::get("/contact", [PagesController::class, 'contact']);
 Route::get("/subject/add", [SubjectController::class, 'add']);
-
-
-
+Route::post("/subject/store", [SubjectController::class, 'store']);
+Route::get("/subject/all", [SubjectController::class, 'all']);
+Route::get('/subject/delete/{id}', [SubjectController::class, 'delete']);
+Route::get('/subject/edit/{id}', [SubjectController::class, 'edit']);
+Route::post('/subject/edit/{id}',[SubjectController::class, 'update'] );
 
 Auth::routes();
 

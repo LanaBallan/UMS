@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class Admin
 {
@@ -14,10 +15,39 @@ class Admin
      * @param \Closure(\Illuminate\Http\Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
      * @return string
      */
-    public function handle(Request $request, Closure $next)
+    public function handle($request, Closure $next)
+
     {
-        if (!$request->expectsJson()) {
-            return redirect()->route('home-page');
+
+        if(Auth::check())
+
+        {
+
+            if(Auth::user()->role == 'admin')
+
+            {
+
+                return $next($request);
+
+            }
+
+            else
+
+            {
+
+                return redirect('/home')->with('status','Access Denied! as you are not as admin');
+
+            }
+
         }
+
+        else
+
+        {
+
+            return redirect('/home')->with('status','Please Login First');
+
+        }
+
     }
 }

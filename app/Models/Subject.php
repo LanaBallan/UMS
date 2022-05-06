@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
 
 class Subject extends Model
 {
@@ -19,6 +20,8 @@ class Subject extends Model
         'name',
         'year',
         'specialization',
+        'max_practical',
+        'max_theoretical',
     ];
 
     protected $hidden = [];

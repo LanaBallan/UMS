@@ -16,8 +16,8 @@ class CreateObjectionReqsTable extends Migration
         Schema::create('objection_reqs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('status');
-            $table->integer('new-mark');
-            $table->bigInteger('mark-id');
+            $table->integer('new_mark');
+            $table->bigInteger('mark_id');
 
             $table->timestamps();
         });
