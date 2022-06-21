@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\MarkController;
+use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
@@ -19,13 +21,33 @@ Route::get("/about", [PagesController::class, 'about']);
 Route::get("/courses", [PagesController::class, 'courses']);
 Route::get("/portfolio", [PagesController::class, 'portfolio']);
 Route::get("/contact", [PagesController::class, 'contact']);
+
+///////////////////////subject routes////////////////////
 Route::get("/subject/add", [SubjectController::class, 'add']);
 Route::post("/subject/store", [SubjectController::class, 'store']);
 Route::get("/subject/all", [SubjectController::class, 'all']);
 Route::get('/subject/delete/{id}', [SubjectController::class, 'delete']);
 Route::get('/subject/edit/{id}', [SubjectController::class, 'edit']);
 Route::post('/subject/edit/{id}',[SubjectController::class, 'update'] );
+/////////////////end of subject routs/////////////////////////
 
+////////////////////mark routes////////////////
+Route::get("/mark/add", [MarkController::class, 'add']);
+Route::post("/mark/store", [MarkController::class, 'store']);
+Route::get("/mark/all", [MarkController::class, 'all']);
+Route::get('/mark/delete/{id}', [MarkController::class, 'delete']);
+Route::get('/mark/edit/{id}', [MarkController::class, 'edit']);
+Route::post('/mark/edit/{id}',[MarkController::class, 'update'] );
+////////////////////end of mark routes////////////////
+
+////////////////////student routes////////////////
+Route::get("/student/add", [StudentController::class, 'add']);
+Route::post("/student/store", [StudentController::class, 'store']);
+Route::get("/student/all", [StudentController::class, 'all']);
+Route::get('/student/delete/{id}', [StudentController::class, 'delete']);
+Route::get('/student/edit/{id}', [StudentController::class, 'edit']);
+Route::post('/student/edit/{id}',[StudentController::class, 'update'] );
+//////////////////////end of mark routes////////////////
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

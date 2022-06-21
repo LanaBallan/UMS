@@ -23,6 +23,7 @@ class CreateMarksTable extends Migration
             $table->year('year');
             $table->Integer('semester');
             $table->enum('status', ['نجاح','رسوب']);
+            $table->boolean('confirmed');
             $table->timestamps();
         });
     }

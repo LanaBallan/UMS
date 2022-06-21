@@ -172,6 +172,12 @@
                                         <input type="radio" class="form-check-input" name="role" id="role" value="affairs" >Affairs Department
                                     </label>
                                 </div>
+                                <br>
+                                <div class="form-check">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input" name="role" id="role" value="checker" >Marks Checker
+                                    </label>
+                                </div>
 
                                 <br><br>
                                 <button type="submit" class="btn btn-primary btn-user btn-block">

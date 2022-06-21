@@ -3,7 +3,7 @@
 
 
 
-<h1 class="text-center">All Restaurant Information</h1>
+<h1 class="text-center">All Subject Information</h1>
 <table class="table table-bordered">
     <thead>
     <tr>
