@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-<base href="/public">
+    <base href="/public">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -57,20 +57,7 @@
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
-        <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#student"
-               aria-expanded="true" aria-controls="collapseTwo">
-                <i class="fas fa-fw "></i>
-                <span>Student</span>
-            </a>
-            <div id="student" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Subjects Control</h6>
-                    <a class="collapse-item" href="/student/add">Add Student</a>
-                    <a class="collapse-item" href="/student/all">All Students</a>
-                </div>
-            </div>
-        </li>
+
 
         <li class="nav-item">
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
@@ -354,10 +341,10 @@
 
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('manager.logout') }}"
+                            <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                <form id="logout-form" action="{{ route('manager.logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-
+    <base href="/public">
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>SB Admin 2 - Register</title>
+    <title>Register</title>
 
     <!-- Custom fonts for this template-->
     <link href="dvendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'Laravel') }}
+            {{ config('app.name', 'UMS') }}
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -51,15 +51,15 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @guest
-                    @if (Route::has('login'))
+                    @if (Route::has('manager.login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('manager.login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
 
-                    @if (Route::has('register'))
+                    @if (Route::has('manager.register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link" href="{{ route('manager.register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
@@ -98,7 +98,11 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user" method="POST" action="{{ route('register') }}">
+                            <form class="user" method="POST" action="{{ route('manager.create') }}">
+                                @if(Session::get('Success'))
+                                    <div class="alert alert-success">{{Session::get('Success')}}</div>
+                                @endif
+
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
@@ -151,7 +155,7 @@
                                                placeholder="Repeat Password">
                                     </div>
                                 </div>
-<br> <h3>Choose Role</h3>
+                                    <br> <h3>Choose Role</h3>
 
 
                                 <div class="form-check">

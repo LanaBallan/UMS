@@ -50,9 +50,45 @@ Route::post('/student/edit/{id}',[StudentController::class, 'update'] );
 //////////////////////end of student routes////////////////
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 
-Auth::routes();
+//Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::prefix('manager')->name('manager.')->group(function(){
+    Route::middleware(['guest'])->group(function(){
+        Route::view('/login','auth.login')->name('login');
+        Route::view('/register','auth.register')->name('register');
+        Route::post('/create',[\App\Http\Controllers\ManagerController::class,'create'])->name('create');
+        Route::post('/check',[\App\Http\Controllers\ManagerController::class, 'check'] )->name('check');
+    });
+    Route::middleware(['auth'])->group(function(){
+
+        Route::view('/home','home')->name('home');
+        Route::post('/logout',[\App\Http\Controllers\ManagerController::class,'logout'])->name('logout');
+
+
+    });
+
+
+});
+
+
+
+Route::prefix('exam')->name('exam.')->group(function(){
+
+/////////////if it's not login
+    Route::middleware(['guest:exam'])->group(function(){
+
+Route::view('login','auth.Exams Dashboard.login')->name('login');
+Route::post('/check',[\App\Http\Controllers\ExamsEmployeeController::class, 'check'] )->name('check');
+
+    });
+
+    Route::middleware(['auth:exam'])->group(function(){
+        Route::view('home','Exams Dashboard.home')->name('home');
+    });
+
+
+});
