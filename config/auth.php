@@ -40,18 +40,18 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'employee1' => [
+        'examsEmployee' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'exams_employees',
         ],
-        'employee2' => [
+        'affairsEmployee' => [
             'driver' => 'session',
-            'provider' => 'users',
+            'provider' => 'students_affairs_employees',
 
         ],
-        'student' => [
+        'manager' => [
             'driver' => 'session',
-            'provider' => 'students',
+            'provider' => 'users',
 
         ],
     ],
@@ -78,27 +78,19 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'managers' => [
+        'manager' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'employee1s' => [
+        'examsEmployee' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
+            'model' => App\Models\ExamsEmployee::class,
         ],
-        'employee2s' => [
+        'affairsEmployee' => [
             'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-        'students' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\Student::class,
+            'model' => App\Models\StudentsAffairsEmployee::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
     ],
 
     /*
