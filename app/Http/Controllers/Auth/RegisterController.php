@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\ExamsEmployee;
+use App\Models\StudentsAffairsEmployee;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -68,12 +70,35 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
 
-        return User::create([
-            'f_name' => $data['f_name'],
-            'l_name' => $data['l_name'],
-            'role' => $data['role'],
-            'email' => $data['email'],
-            'password' => Hash::make($data['password']),
-        ]);
+        if($data['role']=='exam')
+        {
+            return ExamsEmployee::create([
+                'f_name' => $data['f_name'],
+                'l_name' => $data['l_name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+
+        }
+        else if($data['role']=='affairs')
+        {
+            return StudentsAffairsEmployee::create([
+                'f_name' => $data['f_name'],
+                'l_name' => $data['l_name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+
+        }
+        else
+        {
+            return User::create([
+                'f_name' => $data['f_name'],
+                'l_name' => $data['l_name'],
+                'email' => $data['email'],
+                'password' => Hash::make($data['password']),
+            ]);
+        }
+
     }
 }

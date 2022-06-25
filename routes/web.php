@@ -47,7 +47,7 @@ Route::get("/student/all", [StudentController::class, 'all']);
 Route::get('/student/delete/{id}', [StudentController::class, 'delete']);
 Route::get('/student/edit/{id}', [StudentController::class, 'edit']);
 Route::post('/student/edit/{id}',[StudentController::class, 'update'] );
-//////////////////////end of mark routes////////////////
+//////////////////////end of student routes////////////////
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
