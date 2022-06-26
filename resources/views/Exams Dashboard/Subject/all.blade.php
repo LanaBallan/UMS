@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Exams Dashboard.app')
 @section('content')
 
 
@@ -29,11 +29,11 @@
 
             <td>
                 <a type="button"
-                   href="/subject/delete/{{$one->id}}"
+                   href="/exams/subject/delete/{{$one->id}}"
                    class="btn btn-outline-danger">Delete</a>
 
                 <a type="button"
-                   href="/subject/edit/{{$one->id}}"
+                   href="/exams/subject/edit/{{$one->id}}"
                    class="btn btn-outline-success">Edit</a>
             </td>
             @endforeach

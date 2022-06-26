@@ -25,7 +25,7 @@ class RedirectIfAuthenticated
             if (Auth::guard($guard)->check()) {
                 if($guard=='examsEmployee')
                 {
-                    return redirect()->route('admin.home');
+                    return redirect()->route('exams.home');
                 }
                 else if($guard=='affairsEmployee')
                 {

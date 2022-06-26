@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="dvendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,10 +32,8 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="\home">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">{{Auth::user()->role}}</div>
+
+            <span>Exams Department</span>
         </a>
 
         <!-- Divider -->
@@ -43,7 +41,7 @@
 
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
-            <a class="nav-link" href="\home">
+            <a class="nav-link" href="\exams\home">
                 <i class="fas fa-fw fa-tachometer-alt"></i>
                 <span>Dashboard</span></a>
         </li>
@@ -68,8 +66,8 @@
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Subjects Control</h6>
-                    <a class="collapse-item" href="/subject/add">Add Subject</a>
-                    <a class="collapse-item" href="/subject/all">All Subjects</a>
+                    <a class="collapse-item" href="/exams/subject/add">Add Subject</a>
+                    <a class="collapse-item" href="/exams/subject/all">All Subjects</a>
                 </div>
             </div>
         </li>
@@ -85,8 +83,8 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="/mark/add">Add Mark</a>
-                    <a class="collapse-item" href="/mark/all">All Marks</a>
+                    <a class="collapse-item" href="/exams/mark/add">Add Mark</a>
+                    <a class="collapse-item" href="/exams/mark/all">All Marks</a>
 
                 </div>
             </div>
@@ -331,7 +329,7 @@
                     <li class="nav-item dropdown no-arrow">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <span class="mr-2 d-none d-lg-inline text-gray-600 ">{{Auth::user()->f_name}}</span>
+                            <span class="mr-2 d-none d-lg-inline text-gray-600 ">{{Auth::guard('examsEmployee')->user()->f_name}}</span>
 
                         </a>
                         <!-- Dropdown - User Information -->
@@ -341,10 +339,10 @@
 
 
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="{{ route('logout') }}"
+                            <a class="dropdown-item" href="{{ route('exams.logout') }}"
                                onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                <form id="logout-form" action="{{ route('exams.logout') }}" method="POST" class="d-none">
                                     @csrf
                                 </form>
                                 <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -417,6 +415,7 @@
     <script src="djs/demo/chart-area-demo.js"></script>
     <script src="djs/demo/chart-pie-demo.js"></script>
 
+</div>
 </body>
 
 </html>

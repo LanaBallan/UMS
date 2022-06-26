@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Exams Dashboard.app')
 @section('content')
 
             <!-- Begin Page Content -->
@@ -10,7 +10,7 @@
 
                 </div>
 
-                <form action="/subject/store" method="POST">
+                <form action="/exams/subject/store" method="POST">
                     @csrf
 
                     <div class="form-group">

@@ -78,15 +78,12 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
-        'manager' => [
-            'driver' => 'eloquent',
-            'model' => App\Models\User::class,
-        ],
-        'examsEmployee' => [
+
+        'exams_employees' => [
             'driver' => 'eloquent',
             'model' => App\Models\ExamsEmployee::class,
         ],
-        'affairsEmployee' => [
+        'students_affairs_employees' => [
             'driver' => 'eloquent',
             'model' => App\Models\StudentsAffairsEmployee::class,
         ],

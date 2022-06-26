@@ -1,4 +1,4 @@
-@extends('app')
+@extends('Exams Dashboard.app')
 @section('content')
 
 

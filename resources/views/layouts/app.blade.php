@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Manager Dashboard</title>
 
     <!-- Custom fonts for this template-->
     <link href="dvendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -32,10 +32,8 @@
 
         <!-- Sidebar - Brand -->
         <a class="sidebar-brand d-flex align-items-center justify-content-center" href="\home">
-            <div class="sidebar-brand-icon rotate-n-15">
-                <i class="fas fa-laugh-wink"></i>
-            </div>
-            <div class="sidebar-brand-text mx-3">{{Auth::user()->role}}</div>
+
+            <div class="sidebar-brand-text mx-3">Manager</div>
         </a>
 
         <!-- Divider -->

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Exams Dashboard.app')
 @section('content')
 
     <!-- Begin Page Content -->
@@ -6,22 +6,23 @@
 
         <!-- Page Heading -->
         <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add Mark</h1>
+            <h1 class="h3 mb-0 text-gray-800">Edit Mark</h1>
 
         </div>
 
-        <form action="/mark/store" method="POST">
+        <form action="/exams/mark/edit/{{$mark->id}}" method="POST">
             @csrf
 
             <div class="form-group">
                 <label for="student_id">Student ID:</label>
-                <input type="number" class="form-control" id="student_id" placeholder="Enter Student ID" name="student_id" required>
+                <input type="number" class="form-control" id="student_id"
+                       placeholder="Enter Student ID" value="{{$mark->student_id}}"  name="student_id" required>
             </div>
             <div class="form-group">
                 <label for="subject_id">Subject:</label>
                 <select class="form-control" name="subject_id" id="subject_id">
                     @foreach($subjects as $one)
-                    <option value="{{$one->id}}">{{$one->name}}</option>
+                        <option value="{{$one->id}}">{{$one->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -30,13 +31,17 @@
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
                         <label for="practical_mark">Practical Mark:</label>
-                        <input type="number" class="form-control" id="practical_mark" placeholder="Enter Practical Mark" name="practical_mark" required>
+                        <input type="number" class="form-control"
+                               id="practical_mark" placeholder="Enter Practical Mark"
+                               value="{{$mark->practical_mark}}"  name="practical_mark" required>
                     </div>
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
                         <label for="theoretical_mark">Theoretical Mark:</label>
-                        <input type="number" class="form-control" id="theoretical_mark" placeholder="Enter Theoretical Mark" name="theoretical_mark" required>
+                        <input type="number" class="form-control"
+                               id="theoretical_mark" placeholder="Enter Theoretical Mark"
+                               value="{{$mark->theoretical_mark}}"  name="theoretical_mark" required>
                     </div>
                 </div>
             </div>
@@ -44,13 +49,16 @@
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
                         <label for="year">Year:</label>
-                        <input type="number" class="form-control" id="year" placeholder="Enter Year" name="year" required>
+                        <input type="number" class="form-control" id="year"
+                               placeholder="Enter Year"  value="{{$mark->year}}"
+                               name="year" required>
                     </div>
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
                         <label for="semester">Semester:</label>
-                        <select class="form-control" name="semester" id="semester">
+                        <select class="form-control"
+                                name="semester" id="semester">
 
                             <option value="1">First Semester</option>
                             <option value="2">Second Semester</option>

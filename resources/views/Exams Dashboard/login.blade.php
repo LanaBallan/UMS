@@ -14,7 +14,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Manager Login</title>
+    <title>Exams Employees Login</title>
 
     <!-- Custom fonts for this template-->
     <link href="dvendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -35,7 +35,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            {{ config('app.name', 'UMS') }}
+           UMS
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
             <span class="navbar-toggler-icon"></span>
@@ -51,9 +51,9 @@
             <ul class="navbar-nav ms-auto">
                 <!-- Authentication Links -->
                 @guest
-                    @if (Route::has('manager.login'))
+                    @if (Route::has('exams.login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('manager.login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link" href="{{ route('exams.login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
 
@@ -62,24 +62,7 @@
                             <a class="nav-link" href="{{ route('manager.register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
-                @else
-                    <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                            {{ Auth::user()->f_name }}
-                        </a>
 
-                        <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="{{ route('manager.logout') }}"
-                               onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                {{ __('Logout') }}
-                            </a>
-
-                            <form id="logout-form" action="{{ route('manager.logout') }}" method="POST" class="d-none">
-                                @csrf
-                            </form>
-                        </div>
-                    </li>
                 @endguest
             </ul>
         </div>
@@ -102,10 +85,7 @@
                                 <div class="text-center">
                                     <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                 </div>
-                                <form class="user" method="POST" action="{{ route('manager.check') }}">
-                                    @if(Session::get('fail'))
-                                        <div class="alert alert-success">{{Session::get('fail')}}</div>
-                                    @endif
+                                <form class="user" method="POST" action="{{ route('exams.check') }}">
                                     @csrf
                                     <div class="form-group">
 
@@ -122,7 +102,7 @@
                                     <div class="form-group">
                                         <input id="password" type="password" class="form-control form-control-user @error('password') is-invalid @enderror" name="password"
                                                required autocomplete="current-password"
-                                                placeholder="Password">
+                                               placeholder="Password">
                                         @error('password')
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -146,13 +126,6 @@
 
                                 </form>
                                 <hr>
-                                <div class="text-center">
-                                    @if (Route::has('password.request'))
-                                        <a class="small" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif
-                                </div>
 
                             </div>
                         </div>

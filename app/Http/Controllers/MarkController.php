@@ -12,7 +12,7 @@ class MarkController extends Controller
    public function add()
    {
        $subjects=Subject::get();
-       return view('Mark.add',compact('subjects'));
+       return view('Exams Dashboard.Mark.add',compact('subjects'));
    }
     public function store(Request $request)
     {
@@ -34,13 +34,13 @@ class MarkController extends Controller
         }
         $mark->confirmed=false;
         $mark->save();
-        return redirect('/mark/all');
+        return redirect('exams/mark/all');
 
     }
     public function all()
     {
         $marks= Mark::with('get_subject','get_student')->get();
-        return view('Mark.all',compact('marks'));
+        return view('Exams Dashboard.Mark.all',compact('marks'));
     }
     public function delete($id){
         $mark = Mark::find($id);
@@ -50,7 +50,7 @@ class MarkController extends Controller
     public function edit($id){
         $mark = Mark::find($id);
         $subjects=Subject::get();
-        return view('Mark.edit',compact( 'mark','subjects'));
+        return view('Exams Dashboard.Mark.edit',compact( 'mark','subjects'));
 
 
     }
@@ -72,6 +72,6 @@ class MarkController extends Controller
             $mark->status='رسوب';
         }
         $mark->save();
-        return redirect('/mark/all');
+        return redirect('exams/mark/all');
     }
 }

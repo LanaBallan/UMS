@@ -22,23 +22,9 @@ Route::get("/courses", [PagesController::class, 'courses']);
 Route::get("/portfolio", [PagesController::class, 'portfolio']);
 Route::get("/contact", [PagesController::class, 'contact']);
 
-///////////////////////subject routes////////////////////
-Route::get("/subject/add", [SubjectController::class, 'add']);
-Route::post("/subject/store", [SubjectController::class, 'store']);
-Route::get("/subject/all", [SubjectController::class, 'all']);
-Route::get('/subject/delete/{id}', [SubjectController::class, 'delete']);
-Route::get('/subject/edit/{id}', [SubjectController::class, 'edit']);
-Route::post('/subject/edit/{id}',[SubjectController::class, 'update'] );
-/////////////////end of subject routs/////////////////////////
 
-////////////////////mark routes////////////////
-Route::get("/mark/add", [MarkController::class, 'add']);
-Route::post("/mark/store", [MarkController::class, 'store']);
-Route::get("/mark/all", [MarkController::class, 'all']);
-Route::get('/mark/delete/{id}', [MarkController::class, 'delete']);
-Route::get('/mark/edit/{id}', [MarkController::class, 'edit']);
-Route::post('/mark/edit/{id}',[MarkController::class, 'update'] );
-////////////////////end of mark routes////////////////
+
+
 
 ////////////////////student routes////////////////
 Route::get("/student/add", [StudentController::class, 'add']);
@@ -76,18 +62,34 @@ Route::prefix('manager')->name('manager.')->group(function(){
 
 
 
-Route::prefix('exam')->name('exam.')->group(function(){
+Route::prefix('exams')->name('exams.')->group(function(){
 
-/////////////if it's not login
-    Route::middleware(['guest:exam'])->group(function(){
+    Route::middleware(['guest:examsEmployee'])->group(function(){
 
-Route::view('login','auth.Exams Dashboard.login')->name('login');
+Route::view('/login','Exams Dashboard.login')->name('login');
 Route::post('/check',[\App\Http\Controllers\ExamsEmployeeController::class, 'check'] )->name('check');
 
     });
 
-    Route::middleware(['auth:exam'])->group(function(){
-        Route::view('home','Exams Dashboard.home')->name('home');
+    Route::middleware(['auth:examsEmployee'])->group(function(){
+        Route::view('/home','Exams Dashboard.home')->name('home');
+        ////////////////////mark routes////////////////
+        Route::get("/mark/add", [MarkController::class, 'add']);
+        Route::post("/mark/store", [MarkController::class, 'store']);
+        Route::get("/mark/all", [MarkController::class, 'all']);
+        Route::get('/mark/delete/{id}', [MarkController::class, 'delete']);
+        Route::get('/mark/edit/{id}', [MarkController::class, 'edit']);
+        Route::post('/mark/edit/{id}',[MarkController::class, 'update'] );
+////////////////////end of mark routes////////////////
+/// ///////////////////////subject routes////////////////////
+Route::get("/subject/add", [SubjectController::class, 'add']);
+Route::post("/subject/store", [SubjectController::class, 'store']);
+Route::get("/subject/all", [SubjectController::class, 'all']);
+Route::get('/subject/delete/{id}', [SubjectController::class, 'delete']);
+Route::get('/subject/edit/{id}', [SubjectController::class, 'edit']);
+Route::post('/subject/edit/{id}',[SubjectController::class, 'update'] );
+///////////////////end of subject routs/////////////////////////
+        Route::post('/logout',[\App\Http\Controllers\ExamsEmployeeController::class,'logout'])->name('logout');
     });
 
 

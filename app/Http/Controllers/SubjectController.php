@@ -9,7 +9,7 @@ class SubjectController extends Controller
 {
    public function add()
    {
-       return view('Subject.add');
+       return view('Exams Dashboard.Subject.add');
    }
    public function store(Request $request)
    {
@@ -21,14 +21,14 @@ class SubjectController extends Controller
        $subject->max_practical=$data['max_practical'];
        $subject->max_theoretical=$data['max_theoretical'];
        $subject->save();
-       return redirect('/subject/all');
+       return redirect('exams/subject/all');
 
    }
    public function all()
 {
     $subjects= Subject::all();
 
-    return view('Subject.all',compact('subjects'));
+    return view('Exams Dashboard.Subject.all',compact('subjects'));
 }
     public function delete($id){
        $subject = Subject::find($id);
@@ -38,7 +38,7 @@ class SubjectController extends Controller
 
     public function edit($id){
         $subject = Subject::find($id);
-        return view('Subject.edit',compact( 'subject'));
+        return view('Exams Dashboard.Subject.edit',compact( 'subject'));
 
 
     }
@@ -52,6 +52,6 @@ class SubjectController extends Controller
         $subject->max_practical=$data['max_practical'];
         $subject->max_theoretical=$data['max_theoretical'];
         $subject->save();
-        return redirect('/subject/all');
+        return redirect('exams/subject/all');
     }
 }
