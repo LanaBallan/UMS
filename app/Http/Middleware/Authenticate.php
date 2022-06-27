@@ -19,9 +19,9 @@ class Authenticate extends Middleware
             {
                 return route('exams.login');
             }
-            else if($request->routeIs('affair.*'))
+            else if($request->routeIs('affairs.*'))
             {
-                return route('affair.login');
+                return route('affairs.login');
             }
             else
             {

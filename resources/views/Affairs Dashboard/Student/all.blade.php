@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Affairs Dashboard.app')
 @section('content')
 
 
@@ -30,7 +30,7 @@
 
                 <td>
                     <a type="button"
-                       href="/student/delete/{{$one->id}}"
+                       href="/affairs/student/delete/{{$one->id}}"
                        class="btn btn-outline-danger">Delete</a>
 
 

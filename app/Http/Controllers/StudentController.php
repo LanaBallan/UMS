@@ -14,7 +14,7 @@ class StudentController extends Controller
 {
     public function add()
     {
-        return view('Student.add');
+        return view('Affairs Dashboard.Student.add');
     }
 
     /**
@@ -64,10 +64,10 @@ class StudentController extends Controller
              $uniInfo->status='ناجح';
              $uniInfo->specialization='علوم اساسية';
              $uniInfo->save();
-             return redirect('/student/all');
+             return redirect('/affairs/student/all');
          }
          else {
-             return redirect('/student/add')
+             return redirect('/affairs/student/add')
 
                  ->withErrors($validator)
 
@@ -79,7 +79,7 @@ class StudentController extends Controller
     {
         $students=Student::get();
 
-      return view('Student.all',compact('students'));
+      return view('Affairs Dashboard.Student.all',compact('students'));
     }
     public function delete($id){
         $student = Student::find($id);

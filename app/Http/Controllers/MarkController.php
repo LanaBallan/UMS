@@ -34,7 +34,7 @@ class MarkController extends Controller
         }
         $mark->confirmed=false;
         $mark->save();
-        return redirect('exams/mark/all');
+        return redirect('/exams/mark/all');
 
     }
     public function all()
@@ -72,6 +72,6 @@ class MarkController extends Controller
             $mark->status='رسوب';
         }
         $mark->save();
-        return redirect('exams/mark/all');
+        return redirect('/exams/mark/all');
     }
 }

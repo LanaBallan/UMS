@@ -21,7 +21,7 @@ class SubjectController extends Controller
        $subject->max_practical=$data['max_practical'];
        $subject->max_theoretical=$data['max_theoretical'];
        $subject->save();
-       return redirect('exams/subject/all');
+       return redirect('/exams/subject/all');
 
    }
    public function all()
@@ -52,6 +52,6 @@ class SubjectController extends Controller
         $subject->max_practical=$data['max_practical'];
         $subject->max_theoretical=$data['max_theoretical'];
         $subject->save();
-        return redirect('exams/subject/all');
+        return redirect('/exams/subject/all');
     }
 }

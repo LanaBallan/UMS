@@ -26,14 +26,7 @@ Route::get("/contact", [PagesController::class, 'contact']);
 
 
 
-////////////////////student routes////////////////
-Route::get("/student/add", [StudentController::class, 'add']);
-Route::post("/student/store", [StudentController::class, 'store']);
-Route::get("/student/all", [StudentController::class, 'all']);
-Route::get('/student/delete/{id}', [StudentController::class, 'delete']);
-Route::get('/student/edit/{id}', [StudentController::class, 'edit']);
-Route::post('/student/edit/{id}',[StudentController::class, 'update'] );
-//////////////////////end of student routes////////////////
+
 Auth::routes();
 
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -44,14 +37,14 @@ Auth::routes();
 //Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::prefix('manager')->name('manager.')->group(function(){
     Route::middleware(['guest'])->group(function(){
-        Route::view('/login','auth.login')->name('login');
-        Route::view('/register','auth.register')->name('register');
+        Route::view('/login','Manager Dashboard.login')->name('login');
+        Route::view('/register','Manager Dashboard.register')->name('register');
         Route::post('/create',[\App\Http\Controllers\ManagerController::class,'create'])->name('create');
         Route::post('/check',[\App\Http\Controllers\ManagerController::class, 'check'] )->name('check');
     });
     Route::middleware(['auth'])->group(function(){
 
-        Route::view('/home','home')->name('home');
+        Route::view('/home','Manager Dashboard.home')->name('home');
         Route::post('/logout',[\App\Http\Controllers\ManagerController::class,'logout'])->name('logout');
 
 
@@ -90,6 +83,29 @@ Route::get('/subject/edit/{id}', [SubjectController::class, 'edit']);
 Route::post('/subject/edit/{id}',[SubjectController::class, 'update'] );
 ///////////////////end of subject routs/////////////////////////
         Route::post('/logout',[\App\Http\Controllers\ExamsEmployeeController::class,'logout'])->name('logout');
+    });
+
+});
+
+
+Route::prefix('affairs')->name('affairs.')->group(function(){
+    Route::middleware(['guest:affairsEmployee'])->group(function(){
+        Route::view('/login','Affairs Dashboard.login')->name('login');
+        Route::post('/check',[\App\Http\Controllers\AffairsEmployeeController::class, 'check'] )->name('check');
+    });
+    Route::middleware(['auth:affairsEmployee'])->group(function(){
+
+        Route::view('/home','Affairs Dashboard.home')->name('home');
+        Route::post('/logout',[\App\Http\Controllers\AffairsEmployeeController::class,'logout'])->name('logout');
+////////////////////student routes////////////////
+        Route::get("/student/add", [StudentController::class, 'add']);
+        Route::post("/student/store", [StudentController::class, 'store']);
+        Route::get("/student/all", [StudentController::class, 'all']);
+        Route::get('/student/delete/{id}', [StudentController::class, 'delete']);
+        Route::get('/student/edit/{id}', [StudentController::class, 'edit']);
+        Route::post('/student/edit/{id}',[StudentController::class, 'update'] );
+//////////////////////end of student routes////////////////
+
     });
 
 

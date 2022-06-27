@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('Affairs Dashboard.app')
 
 @section('content')
 
@@ -15,7 +15,7 @@
                             <div class="text-center">
                                 <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                             </div>
-                            <form class="user" method="POST" action="/student/store" enctype="multipart/form-data">
+                            <form class="user" method="POST" action="/affairs/student/store" enctype="multipart/form-data">
                                 @csrf
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">

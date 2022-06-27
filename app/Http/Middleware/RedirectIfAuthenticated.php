@@ -29,7 +29,7 @@ class RedirectIfAuthenticated
                 }
                 else if($guard=='affairsEmployee')
                 {
-                    return redirect()->route('affair.home');
+                    return redirect()->route('affairs.home');
                 }
                 else
                 {
