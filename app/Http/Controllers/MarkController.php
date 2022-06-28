@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Subject;
 use App\Models\Mark;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 
 class MarkController extends Controller
@@ -20,6 +21,7 @@ class MarkController extends Controller
       $findToConfirm=Mark::where([
           ['student_id',$data['student_id']],
           ['subject_id',$data['subject_id']],
+          ['employee_id','!=',Auth::guard('examsEmployee')->user()->id],
           ['total_mark',$data['practical_mark']+$data['theoretical_mark']],
           ['year',$data['year']],
           ['semester',$data['semester']],
@@ -34,14 +36,21 @@ else
     $findToConfirm=Mark::where([
         ['student_id',$data['student_id']],
         ['subject_id',$data['subject_id']],
+        ['employee_id',Auth::guard('examsEmployee')->user()->id],
+            ['total_mark',$data['practical_mark']+$data['theoretical_mark']],
         ['year',$data['year']],
-        ['semester',$data['semester']],
-    ])->first();
-    if( $findToConfirm==null)
+        ['semester',$data['semester']]
+    ])->orWhere([
+        ['student_id',$data['student_id']],
+    ['subject_id',$data['subject_id']],
+    ['year',$data['year']],
+    ['semester',$data['semester']]])->first();
+    if($findToConfirm==null)
     {
         $mark=new Mark;
         $mark->student_id= $data['student_id'];
         $mark->subject_id= $data['subject_id'];
+        $mark->employee_id=Auth::guard('examsEmployee')->user()->id;
         $mark->practical_mark= $data['practical_mark'];
         $mark->theoretical_mark=$data['theoretical_mark'];
         $mark->total_mark=$data['practical_mark']+$data['theoretical_mark'];

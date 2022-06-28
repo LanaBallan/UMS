@@ -23,8 +23,6 @@ class ExamsEmployee extends Model implements AuthenticatableContract
         'l_name',
         'password',
         'email',
-
-
     ];
 
     /**
@@ -36,6 +34,9 @@ class ExamsEmployee extends Model implements AuthenticatableContract
         'password',
         'remember_token',
     ];
+    public function get_marks(){
+        return $this->hasMany('App\Models\Mark','employee_id','id');
+    }
 
 
 }

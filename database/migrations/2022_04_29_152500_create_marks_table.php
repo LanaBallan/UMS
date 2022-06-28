@@ -17,6 +17,7 @@ class CreateMarksTable extends Migration
             $table->bigIncrements('id');
             $table->bigInteger('student_id');
             $table->bigInteger('subject_id');
+            $table->Integer('employee_id');
             $table->Integer('practical_mark');
             $table->Integer('theoretical_mark');
             $table->Integer('total_mark');

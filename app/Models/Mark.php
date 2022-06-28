@@ -33,6 +33,10 @@ class Mark extends Model
     {
         return $this->belongsTo('App\Models\Subject', 'subject_id', 'id');
     }
+    public function get_employee()
+    {
+        return $this->belongsTo('App\Models\ExamsEmployee', 'employee_id', 'id');
+    }
     public function get_objection_req(){
         return $this->hasMany('App\Models\ObjectionReq','mark_id','id');
     }

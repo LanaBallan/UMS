@@ -120,9 +120,7 @@
                                         {{ __('Login') }}
                                     </button>
 
-                                    <a href="{{ route('manager.register')}}" class="btn btn-google btn-user btn-block">
-                                        <i class="fab  fa-fw"></i> Register
-                                    </a>
+
 
                                 </form>
                                 <hr>
