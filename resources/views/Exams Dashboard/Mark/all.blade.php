@@ -7,7 +7,7 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>ID</th>
+
             <th>Subject Name</th>
             <th>Student Name</th>
             <th>Student ID</th>
@@ -24,7 +24,7 @@
         @foreach($marks as $one)
             <tr>
 
-                <td>{{$one->id}}</td>
+
                 <td>{{$one->get_subject->name}}</td>
                 <td>{{$one->get_student->f_name}} {{$one->get_student->l_name}}</td>
                 <td>{{$one->student_id}}</td>

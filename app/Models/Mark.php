@@ -24,6 +24,7 @@ class Mark extends Model
 
     protected $hidden = [];
 
+
     public function get_student()
     {
         return $this->belongsTo('App\Models\Student', 'student_id', 'id');
