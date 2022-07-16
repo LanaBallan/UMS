@@ -20,7 +20,7 @@ class Request extends Model
     ];
     public function get_student(){
 
-        return $this->belongsTo('App\Student','student_id','id');
+        return $this->belongsTo('App\Models\Student','student_id','id');
 
     }
 }

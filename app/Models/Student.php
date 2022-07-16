@@ -22,6 +22,7 @@ class Student extends Model
         'phone',
         'password',
         'email',
+        'point',
         'photo',
         'created_at',
     ];
@@ -41,9 +42,7 @@ class Student extends Model
         return $this->getKey();
     }
 
-    //public function get_uni_info(){
-    //   return $this->hasMany('App\Models\Uni_info','uni_id','id' );
-    // }
+
     /**
      * Return a key value array, containing any custom claims to be added to the JWT.
      *

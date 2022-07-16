@@ -2,28 +2,25 @@
 @section('content')
 
             <!-- Begin Page Content -->
-            <div class="container-fluid">
+            <div style="text-align: right" class="container-fluid">
 
                 <!-- Page Heading -->
-                <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                    <h1 class="h3 mb-0 text-gray-800">Add Subject</h1>
-
-                </div>
+                <h1 class="text-center">إضافة مادة</h1>
 
                 <form action="/exams/subject/store" method="POST">
                     @csrf
 
                     <div class="form-group">
-                        <label for="name">Name:</label>
-                        <input type="text" class="form-control" id="name" placeholder="Enter Name" name="name" required>
+                        <label for="name">:الاسم</label>
+                        <input style="text-align: right" type="text" class="form-control" id="name" placeholder="أدخل الاسم" name="name" required>
                     </div>
                     <div class="form-group">
-                        <label for="year">Year:</label>
-                        <input type="number" class="form-control" id="year" placeholder="Enter Year" name="year" required>
+                        <label for="year">:السنة</label>
+                        <input style="text-align: right" type="number" class="form-control" id="year" placeholder="أدخل السنة" name="year" required>
                     </div>
                     <div class="form-group">
-                        <label for="specialization">Specialization:</label>
-                    <select class="form-control" name="specialization" id="specialization">
+                        <label for="specialization">:التخصص</label>
+                    <select style="text-align: right" class="form-control" name="specialization" id="specialization">
                         <option value="علوم اساسية">علوم اساسية</option>
                         <option value="برمجيات">برمجيات</option>
                         <option value="شبكات">شبكات</option>
@@ -33,27 +30,24 @@
                     <div class="form-group row">
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <div class="form-group">
-                                <label for="max_practical">Max Practical Mark:</label>
-                                <input type="number" class="form-control" id="max_practical" placeholder="Enter Max Practical Mark" name="max_practical" required>
+                                <label for="max_practical">:علامة العملي العظمى</label>
+                                <input style="text-align: right" type="number" class="form-control" id="max_practical"  name="max_practical" required>
                             </div>
                         </div>
                         <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="form-group">
-                            <label for="max_theoretical">Max Theoretical Mark:</label>
-                            <input type="number" class="form-control" id="max_theoretical" placeholder="Enter Max Theoretical Mark" name="max_theoretical" required>
+                            <label for="max_theoretical">:علامة النظري العظمى</label>
+                            <input style="text-align: right" type="number" class="form-control" id="max_theoretical"  name="max_theoretical" required>
                         </div>
                         </div>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button style="text-align: right" type="submit" class="btn btn-primary">إضافة</button>
                 </form>
                     </div>
 
 
-                </div>
 
-            </div>
-            <!-- /.container-fluid -->
 
-        </div>
-        <!-- End of Main Content -->
+
+
 @endsection

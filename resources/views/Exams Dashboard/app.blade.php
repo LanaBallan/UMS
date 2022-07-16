@@ -31,27 +31,22 @@
     <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
-        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="\home">
+        <a class="sidebar-brand d-flex align-items-center justify-content-center" href="\exams\home">
 
-            <span>Exams Department</span>
+            <span>قسم الامتحانات</span>
         </a>
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
 
-        <!-- Nav Item - Dashboard -->
-        <li class="nav-item active">
-            <a class="nav-link" href="\exams\home">
-                <i class="fas fa-fw fa-tachometer-alt"></i>
-                <span>Dashboard</span></a>
-        </li>
+
 
         <!-- Divider -->
         <hr class="sidebar-divider">
 
         <!-- Heading -->
-        <div class="sidebar-heading">
-            Interface
+        <div  style="text-align: center" class="sidebar-heading">
+           الإدارة
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
@@ -61,13 +56,13 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                aria-expanded="true" aria-controls="collapseTwo">
                 <i class="fas fa-fw "></i>
-                <span>Subject</span>
+                <span>المواد</span>
             </a>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Subjects Control</h6>
-                    <a class="collapse-item" href="/exams/subject/add">Add Subject</a>
-                    <a class="collapse-item" href="/exams/subject/all">All Subjects</a>
+                    <h6 class="collapse-header">إدارة المواد</h6>
+                    <a class="collapse-item" href="/exams/subject/add">إضافة مادة</a>
+                    <a class="collapse-item" href="/exams/subject/all">عرض المواد</a>
                 </div>
             </div>
         </li>
@@ -77,14 +72,14 @@
             <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
                aria-expanded="true" aria-controls="collapseUtilities">
                 <i class="fas fa-fw "></i>
-                <span>Mark</span>
+                <span>العلامات</span>
             </a>
             <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Custom Utilities:</h6>
-                    <a class="collapse-item" href="/exams/mark/add">Add Mark</a>
-                    <a class="collapse-item" href="/exams/mark/all">All Marks</a>
+                    <h6 class="collapse-header">إدارة العلامات</h6>
+                    <a class="collapse-item" href="/exams/mark/add">إضافة علامة</a>
+                    <a class="collapse-item" href="/exams/mark/all">جميع العلامات</a>
 
                 </div>
             </div>
@@ -94,30 +89,17 @@
         <hr class="sidebar-divider">
 
         <!-- Heading -->
-        <div class="sidebar-heading">
-            Addons
+        <div style="text-align: center" class="sidebar-heading">
+           الطلبات
         </div>
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
-            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
-               aria-expanded="true" aria-controls="collapsePages">
-                <i class="fas fa-fw fa-folder"></i>
-                <span>Pages</span>
-            </a>
-            <div id="collapsePages" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
-                <div class="bg-white py-2 collapse-inner rounded">
-                    <h6 class="collapse-header">Login Screens:</h6>
-                    <a class="collapse-item" href="login.html">Login</a>
-                    <a class="collapse-item" href="register.html">Register</a>
-                    <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                    <div class="collapse-divider"></div>
-                    <h6 class="collapse-header">Other Pages:</h6>
-                    <a class="collapse-item" href="404.html">404 Page</a>
-                    <a class="collapse-item" href="blank.html">Blank Page</a>
-                </div>
-            </div>
+            <a class="nav-link" href="/exams/document-requests/all">
+                <i class="fas fa-fw "></i>
+                <span>الوثائق</span></a>
         </li>
+
 
         <!-- Nav Item - Charts -->
         <li class="nav-item">
@@ -357,15 +339,6 @@
             <!-- End of Topbar -->
 
         @yield('content')
-        <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
 
         </div>
         <!-- End of Content Wrapper -->

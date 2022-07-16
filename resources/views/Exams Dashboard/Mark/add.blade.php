@@ -2,24 +2,20 @@
 @section('content')
 
     <!-- Begin Page Content -->
-    <div class="container-fluid">
+    <div style="text-align: right" class="container-fluid">
 
-        <!-- Page Heading -->
-        <div class="d-sm-flex align-items-center justify-content-between mb-4">
-            <h1 class="h3 mb-0 text-gray-800">Add Mark</h1>
-
-        </div>
+        <h1 class="text-center">إضافة علامة</h1>
 
         <form action="/exams/mark/store" method="POST">
             @csrf
 
             <div class="form-group">
-                <label for="student_id">Student ID:</label>
-                <input type="number" class="form-control" id="student_id" placeholder="Enter Student ID" name="student_id" required>
+                <label for="student_id">:رقم الطالب</label>
+                <input style="text-align: right" type="number" class="form-control" id="student_id" placeholder="أدخل رقم الطالب الجامعي" name="student_id" required>
             </div>
             <div class="form-group">
-                <label for="subject_id">Subject:</label>
-                <select class="form-control" name="subject_id" id="subject_id">
+                <label for="subject_id">:المادة</label>
+                <select style="text-align: right" class="form-control" name="subject_id" id="subject_id">
                     @foreach($subjects as $one)
                     <option value="{{$one->id}}">{{$one->name}}</option>
                     @endforeach
@@ -29,36 +25,36 @@
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
-                        <label for="practical_mark">Practical Mark:</label>
-                        <input type="number" class="form-control" id="practical_mark" placeholder="Enter Practical Mark" name="practical_mark" required>
+                        <label for="practical_mark">:علامة العملي</label>
+                        <input style="text-align: right" type="number" class="form-control" id="practical_mark" placeholder="أدخل علامة العملي" name="practical_mark" required>
                     </div>
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
-                        <label for="theoretical_mark">Theoretical Mark:</label>
-                        <input type="number" class="form-control" id="theoretical_mark" placeholder="Enter Theoretical Mark" name="theoretical_mark" required>
+                        <label for="theoretical_mark">علامة النظري</label>
+                        <input style="text-align: right" type="number" class="form-control" id="theoretical_mark" placeholder="أدخل علامة النظري" name="theoretical_mark" required>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
-                        <label for="year">Year:</label>
-                        <input type="number" class="form-control" id="year" placeholder="Enter Year" name="year" required>
+                        <label for="year">:السنة</label>
+                        <input style="text-align: right" type="number" class="form-control" id="year" placeholder="أدخل السنة التي تقدم بها الطالب" name="year" required>
                     </div>
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
-                        <label for="semester">Semester:</label>
-                        <select class="form-control" name="semester" id="semester">
+                        <label for="semester">:الفصل الدراسي</label>
+                        <select style="text-align: right" class="form-control" name="semester" id="semester">
 
-                            <option value="1">First Semester</option>
-                            <option value="2">Second Semester</option>
+                            <option value="1">الفصل الأول</option>
+                            <option value="2">الفصل الثاني</option>
                         </select>
                     </div>
                 </div>
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" class="btn btn-primary">إضافة</button>
         </form>
     </div>
 

@@ -3,39 +3,38 @@
 
 
 
-<h1 class="text-center">All Subject Information</h1>
-<table class="table table-bordered">
+<h1 class="text-center">معلومات جميع المواد</h1>
+<table class="table table-bordered text-center">
     <thead>
     <tr>
 
-        <th>Name</th>
-        <th>Year</th>
-        <th>Specialization</th>
-        <th>Max Practical Mark</th>
-        <th>Max Theoretical Mark</th>
-
+        <th>علامة النظري العظمى</th>
+        <th>علامة العملي العظمى</th>
+        <th>التخصص</th>
+        <th>السنة</th>
+        <th>الاسم</th>
     </tr>
     </thead>
     <tbody>
     @foreach($subjects as $one)
         <tr>
 
-
-            <td>{{$one->name}}</td>
-            <td>{{$one->year}}</td>
-            <td>{{$one->specialization}}</td>
-            <td>{{$one->max_practical}}</td>
-            <td>{{$one->max_theoretical}}</td>
-
             <td>
                 <a type="button"
                    href="/exams/subject/delete/{{$one->id}}"
-                   class="btn btn-outline-danger">Delete</a>
+                   class="btn btn-outline-danger">حذف</a>
 
                 <a type="button"
                    href="/exams/subject/edit/{{$one->id}}"
-                   class="btn btn-outline-success">Edit</a>
+                   class="btn btn-outline-success">تعديل</a>
             </td>
+
+            <td>{{$one->max_theoretical}}</td>
+            <td>{{$one->max_practical}}</td>
+            <td>{{$one->specialization}}</td>
+            <td>{{$one->year}}</td>
+            <td>{{$one->name}}</td>
+
             @endforeach
         </tr>
     </tbody>

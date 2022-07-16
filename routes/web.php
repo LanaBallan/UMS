@@ -82,7 +82,11 @@ Route::get('/subject/delete/{id}', [SubjectController::class, 'delete']);
 Route::get('/subject/edit/{id}', [SubjectController::class, 'edit']);
 Route::post('/subject/edit/{id}',[SubjectController::class, 'update'] );
 ///////////////////end of subject routs/////////////////////////
-        Route::post('/logout',[\App\Http\Controllers\ExamsEmployeeController::class,'logout'])->name('logout');
+//////////////////document requests routes/////////////////////
+        Route::get("/document-requests/all", [\App\Http\Controllers\RequestController::class, 'all']);
+        Route::get('/document-requests/confirm/{id}', [\App\Http\Controllers\RequestController::class, 'confirm']);
+        Route::get('/document-requests/details/{id}', [\App\Http\Controllers\RequestController::class, 'details']);
+Route::post('/logout',[\App\Http\Controllers\ExamsEmployeeController::class,'logout'])->name('logout');
     });
 
 });
