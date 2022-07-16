@@ -83,9 +83,10 @@ Route::get('/subject/edit/{id}', [SubjectController::class, 'edit']);
 Route::post('/subject/edit/{id}',[SubjectController::class, 'update'] );
 ///////////////////end of subject routs/////////////////////////
 //////////////////document requests routes/////////////////////
-        Route::get("/document-requests/all", [\App\Http\Controllers\RequestController::class, 'all']);
-        Route::get('/document-requests/confirm/{id}', [\App\Http\Controllers\RequestController::class, 'confirm']);
-        Route::get('/document-requests/details/{id}', [\App\Http\Controllers\RequestController::class, 'details']);
+        Route::get("/document-requests/all", [\App\Http\Controllers\RequestController::class, 'allExamsDepartment']);
+        Route::get('/document-requests/confirm/{id}', [\App\Http\Controllers\RequestController::class, 'confirmExamsDepartment']);
+        Route::get('/document-requests/details/{id}', [\App\Http\Controllers\RequestController::class, 'detailsExamsDepartment']);
+        //////////////////end of document requests routes///////////////////////////////////////////
 Route::post('/logout',[\App\Http\Controllers\ExamsEmployeeController::class,'logout'])->name('logout');
     });
 
@@ -109,7 +110,11 @@ Route::prefix('affairs')->name('affairs.')->group(function(){
         Route::get('/student/edit/{id}', [StudentController::class, 'edit']);
         Route::post('/student/edit/{id}',[StudentController::class, 'update'] );
 //////////////////////end of student routes////////////////
-
+//////////////////document requests routes/////////////////////
+        Route::get("/document-requests/all", [\App\Http\Controllers\RequestController::class, 'allAffairsDepartment']);
+        Route::get('/document-requests/confirm/{id}', [\App\Http\Controllers\RequestController::class, 'confirmAffairsDepartment']);
+        Route::get('/document-requests/details/{id}', [\App\Http\Controllers\RequestController::class, 'detailsAffairsDepartment']);
+        //////////////////end of document requests routes///////////////////////////////////////////
     });
 
 
