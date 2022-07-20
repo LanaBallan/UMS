@@ -16,7 +16,15 @@ class Request extends Model
         'type',
         'status',
         'student_id',
-
+        'acquittal_from_the_university',
+        'acquittal_from_housing',
+        'Clearance_of_credit_of_credit',
+        'donate_blood',
+        'Delivering financial',
+        'photo_card',
+        'photo_id',
+        'arrived_registration',
+        'current_year'
     ];
     public function get_student(){
 

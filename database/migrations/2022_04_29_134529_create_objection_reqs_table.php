@@ -21,6 +21,7 @@ class CreateObjectionReqsTable extends Migration
             $table->bigInteger('student_id');
             $table->bigInteger('subject_id');
             $table->timestamps();
+
         });
     }
 

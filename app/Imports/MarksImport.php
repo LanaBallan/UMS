@@ -3,6 +3,7 @@
 namespace App\Imports;
 
 use App\Models\Mark;
+use App\Models\Uni_info;
 use Carbon\Carbon;
 use Maatwebsite\Excel\Concerns\ToModel;
 use Illuminate\Http\Request;
@@ -49,17 +50,16 @@ $this->subject_id=$request->subject_id;
         $mytime = Carbon::now();
 if($this->mark_type=='عملي')
 {
-
-    return new Mark([
-        "student_id" => $row[0],
-        "practical_mark" => $row[1],
-        "subject_id" =>   $this->subject_id,
-        "total_mark" => $row[1],
-        "semester" => $this->semester,
-        "year" => $this->year,
-        "status" => 'نجاح',
-        "time_insert_parc" => $mytime->toDateString(),
-    ]);
+        return new Mark([
+            "student_id" => $row[0],
+            "practical_mark" => $row[1],
+            "subject_id" => $this->subject_id,
+            "total_mark" => $row[1],
+            "semester" => $this->semester,
+            "year" => $this->year,
+            "status" => 'نجاح',
+            "time_insert_parc" => $mytime->toDateString(),
+        ]);
 }
 else
 {
@@ -79,10 +79,26 @@ if($mark!=null)
         $mark->status='رسوب';
     }
     $mark->save();
+    $marks=Mark::where('student_id',$row[0])->where('status','رسوب')->get();
+    $failed_marks=count($marks);
+    $uni_info=Uni_info::where('id',$row[0])->first();
+    if($failed_marks>4) {
+        $uni_info->status = 'راسب';
+        $uni_info->save();
+    }
+    else if($failed_marks==0)
+    {
+        $uni_info->status = 'ناجح';
+        $uni_info->save();
+    }
+    else if($failed_marks>0&&$failed_marks<=4)
+    {
+        $uni_info->status = 'منقول';
+        $uni_info->save();
+    }
 
     return $mark;
 }
-
      else
          return null;
     }

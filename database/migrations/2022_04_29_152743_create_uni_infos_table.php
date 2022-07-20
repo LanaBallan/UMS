@@ -21,6 +21,11 @@ class CreateUniInfosTable extends Migration
             $table->Integer('total_failed_year');
             $table->enum('status', ['منقول','ناجح','راسب']);
             $table->enum('specialization', ['برمجيات','ذكاء','شبكات','علوم اساسية']);
+
+
+
+
+
             $table->timestamps();
         });
     }

@@ -18,8 +18,10 @@ class ObjectionReq extends Model
     protected $fillable = [
         'id',
         'status',
-        'new-mark',
-        'mark-id'
+        'type',
+        'new_mark',
+        'student_id',
+        'subject_id'
     ];
     public function get_mark(){
 

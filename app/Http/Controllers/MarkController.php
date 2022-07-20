@@ -19,61 +19,7 @@ class MarkController extends Controller
    }
     public function store(Request $request)
     {
-//        $data = $request->input();
-//      $findToConfirm=Mark::where([
-//          ['student_id',$data['student_id']],
-//          ['subject_id',$data['subject_id']],
-//          ['employee_id','!=',Auth::guard('examsEmployee')->user()->id],
-//          ['total_mark',$data['practical_mark']+$data['theoretical_mark']],
-//          ['year',$data['year']],
-//          ['semester',$data['semester']],
-//      ])->first();
-//if($findToConfirm!=null)
-//{
-//    $findToConfirm->confirmed=true;
-//    $findToConfirm->save();
-//}
-//else
-//{
-//    $findToConfirm=Mark::where([
-//        ['student_id',$data['student_id']],
-//        ['subject_id',$data['subject_id']],
-//        ['employee_id',Auth::guard('examsEmployee')->user()->id],
-//            ['total_mark',$data['practical_mark']+$data['theoretical_mark']],
-//        ['year',$data['year']],
-//        ['semester',$data['semester']]
-//    ])->orWhere([
-//        ['student_id',$data['student_id']],
-//    ['subject_id',$data['subject_id']],
-//    ['year',$data['year']],
-//    ['semester',$data['semester']]])->first();
-//    if($findToConfirm==null)
-//    {
-//        $mark=new Mark;
-//        $mark->student_id= $data['student_id'];
-//        $mark->subject_id= $data['subject_id'];
-//        $mark->employee_id=Auth::guard('examsEmployee')->user()->id;
-//        $mark->practical_mark= $data['practical_mark'];
-//        $mark->theoretical_mark=$data['theoretical_mark'];
-//        $mark->total_mark=$data['practical_mark']+$data['theoretical_mark'];
-//        $mark->year=$data['year'];
-//        $mark->semester=$data['semester'];
-//        if( $mark->total_mark>=60)
-//        {
-//            $mark->status='نجاح';
-//        }
-//        else{
-//            $mark->status='رسوب';
-//        }
-//        $mark->confirmed=false;
-//        $mark->save();
-//    }
-//
-//}
-//
-//        return redirect('/exams/mark/all');
         Excel::import(new MarksImport($request), $request->file);
-
         return redirect('/exams/mark/all');
     }
     public function all()
