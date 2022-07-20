@@ -81,7 +81,7 @@ if($mark!=null)
     $mark->save();
     $marks=Mark::where('student_id',$row[0])->where('status','رسوب')->get();
     $failed_marks=count($marks);
-    $uni_info=Uni_info::where('id',$row[0])->first();
+    $uni_info=Uni_info::where('student_id',$row[0])->first();
     if($failed_marks>4) {
         $uni_info->status = 'راسب';
         $uni_info->save();
