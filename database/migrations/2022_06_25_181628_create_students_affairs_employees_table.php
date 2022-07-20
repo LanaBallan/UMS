@@ -19,9 +19,6 @@ class CreateStudentsAffairsEmployeesTable extends Migration
             $table->string('l_name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->bigInteger('phone');
-            $table->bigInteger('point')->default(0);
-            $table->binary('photo');
             $table->rememberToken();
             $table->timestamps();
         });

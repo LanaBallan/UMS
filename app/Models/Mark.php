@@ -20,6 +20,8 @@ class Mark extends Model
         'year',
         'semester',
         'status',
+        'time_insert_parc',
+        'time_insert_theo',
     ];
 
     protected $hidden = [];
@@ -32,10 +34,6 @@ class Mark extends Model
     public function get_subject()
     {
         return $this->belongsTo('App\Models\Subject', 'subject_id', 'id');
-    }
-    public function get_employee()
-    {
-        return $this->belongsTo('App\Models\ExamsEmployee', 'employee_id', 'id');
     }
     public function get_objection_req(){
         return $this->hasMany('App\Models\ObjectionReq','mark_id','id');

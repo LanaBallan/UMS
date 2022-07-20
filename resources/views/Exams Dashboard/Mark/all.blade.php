@@ -7,8 +7,8 @@
     <table class="table table-bordered">
         <thead>
         <tr>
+<th></th>
 
-           <th>مؤكد</th>
             <th>الفصل</th>
             <th>السنة</th>
             <th>الحالة</th>
@@ -31,12 +31,7 @@
                     <a type="button"
                        href="/exams/mark/edit/{{$one->id}}"
                        class="btn btn-outline-success">تعديل</a>
-                </td>
-                @if($one->confirmed=='0')
-                    <td>غير مؤكد</td>
-                @else
-                    <td>مؤكد</td>
-                @endif
+
                 @if($one->semester=='1')
                 <td>الأول</td>
                 @else

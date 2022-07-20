@@ -6,33 +6,33 @@
 
         <h1 class="text-center">إضافة علامة</h1>
 
-        <form action="/exams/mark/store" method="POST">
+        <form action="/exams/mark/store" method="POST" enctype="multipart/form-data">
             @csrf
-
             <div class="form-group">
-                <label for="student_id">:رقم الطالب</label>
-                <input style="text-align: right" type="number" class="form-control" id="student_id" placeholder="أدخل رقم الطالب الجامعي" name="student_id" required>
-            </div>
-            <div class="form-group">
-                <label for="subject_id">:المادة</label>
-                <select style="text-align: right" class="form-control" name="subject_id" id="subject_id">
-                    @foreach($subjects as $one)
-                    <option value="{{$one->id}}">{{$one->name}}</option>
-                    @endforeach
-                </select>
-            </div>
 
+                <input style="text-align: right" id="file" type="file" class="form-control form-control-user "
+                       name="file"  required
+                       placeholder="Personal Photo" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
+            </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
-                        <label for="practical_mark">:علامة العملي</label>
-                        <input style="text-align: right" type="number" class="form-control" id="practical_mark" placeholder="أدخل علامة العملي" name="practical_mark" required>
+                        <label for="subject_id">:المادة</label>
+                        <select style="text-align: right" class="form-control" name="subject_id" id="subject_id">
+                            @foreach($subjects as $one)
+                                <option value="{{$one->id}}">{{$one->name}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
-                        <label for="theoretical_mark">علامة النظري</label>
-                        <input style="text-align: right" type="number" class="form-control" id="theoretical_mark" placeholder="أدخل علامة النظري" name="theoretical_mark" required>
+                        <label for="mark_type">نوع العلامة</label>
+                        <select style="text-align: right" class="form-control" name="mark_type" id="mark_type">
+
+                            <option value="عملي">عملي</option>
+                            <option value="نظري">نظري</option>
+                        </select>
                     </div>
                 </div>
             </div>

@@ -78,7 +78,7 @@
                  data-parent="#accordionSidebar">
                 <div class="bg-white py-2 collapse-inner rounded">
                     <h6 class="collapse-header">إدارة العلامات</h6>
-                    <a class="collapse-item" href="/exams/mark/add">إضافة علامة</a>
+                    <a class="collapse-item" href="/exams/mark/add">إضافة علامات</a>
                     <a class="collapse-item" href="/exams/mark/all">جميع العلامات</a>
 
                 </div>

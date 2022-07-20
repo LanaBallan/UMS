@@ -57,11 +57,7 @@
                         </li>
                     @endif
 
-                    @if (Route::has('manager.register'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('manager.register') }}">{{ __('Register') }}</a>
-                        </li>
-                    @endif
+
 
                 @endguest
             </ul>

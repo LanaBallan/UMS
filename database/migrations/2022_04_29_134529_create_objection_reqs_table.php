@@ -16,9 +16,10 @@ class CreateObjectionReqsTable extends Migration
         Schema::create('objection_reqs', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->boolean('status');
+            $table->enum('type', ['practical','theoretical']);
             $table->integer('new_mark');
-            $table->bigInteger('mark_id');
-
+            $table->bigInteger('student_id');
+            $table->bigInteger('subject_id');
             $table->timestamps();
         });
     }

@@ -38,15 +38,15 @@ Auth::routes();
 Route::prefix('manager')->name('manager.')->group(function(){
     Route::middleware(['guest'])->group(function(){
         Route::view('/login','Manager Dashboard.login')->name('login');
-        Route::view('/register','Manager Dashboard.register')->name('register');
-        Route::post('/create',[\App\Http\Controllers\ManagerController::class,'create'])->name('create');
         Route::post('/check',[\App\Http\Controllers\ManagerController::class, 'check'] )->name('check');
+        Route::view('/register','Manager Dashboard.register')->name('register');
+
+        Route::post('/create',[\App\Http\Controllers\ManagerController::class,'create'])->name('create');
     });
     Route::middleware(['auth'])->group(function(){
 
         Route::view('/home','Manager Dashboard.home')->name('home');
         Route::post('/logout',[\App\Http\Controllers\ManagerController::class,'logout'])->name('logout');
-
 
     });
 

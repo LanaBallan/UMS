@@ -16,7 +16,7 @@ class ManagerController extends Controller
 
         if($request->role=='exam')
         {
-            $request->validate([  'f_name' => ['required', 'string', 'max:255'],
+            $request->validate(['f_name' => ['required', 'string', 'max:255'],
                 'l_name' => ['required', 'string', 'max:255'],
                 'role' => ['required', 'string', 'max:255'],
                 'email' => ['required', 'string', 'email', 'max:255', 'unique:exams_employees'],

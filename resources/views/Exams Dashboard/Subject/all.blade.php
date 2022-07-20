@@ -7,7 +7,7 @@
 <table class="table table-bordered text-center">
     <thead>
     <tr>
-
+        <th></th>
         <th>علامة النظري العظمى</th>
         <th>علامة العملي العظمى</th>
         <th>التخصص</th>
@@ -32,7 +32,18 @@
             <td>{{$one->max_theoretical}}</td>
             <td>{{$one->max_practical}}</td>
             <td>{{$one->specialization}}</td>
-            <td>{{$one->year}}</td>
+            @if($one->year==1)
+            <td>الأولى</td>
+            @elseif($one->year==2)
+                <td>الثانية</td>
+            @elseif($one->year==3)
+                <td>الثالة</td>
+            @elseif($one->year==4)
+                <td>الرابعة</td>
+            @else
+                <td>الخامسة</td>
+            @endif
+
             <td>{{$one->name}}</td>
 
             @endforeach
