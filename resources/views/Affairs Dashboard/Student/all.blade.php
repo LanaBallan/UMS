@@ -4,7 +4,7 @@
 
 
     <h1 class="text-center">All Student Information</h1>
-    <table class="table table-bordered">
+    <table class="table table-bordered text-center">
         <thead>
         <tr>
             <th>ID</th>

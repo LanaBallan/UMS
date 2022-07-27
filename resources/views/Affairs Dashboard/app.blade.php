@@ -68,6 +68,21 @@
                 </div>
             </div>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#ad"
+               aria-expanded="true" aria-controls="collapseThree">
+                <i class="fas fa-fw "></i>
+                <span>الإعلانات</span>
+            </a>
+            <div id="ad" class="collapse" aria-labelledby="collapseThree" data-parent="#accordionSidebar">
+                <div class="bg-white py-2 collapse-inner rounded">
+                    <h6 class="collapse-header">إدارة الإعلانات</h6>
+                    <a class="collapse-item" href="/affairs/ad/add">إضافة إعلان</a>
+                    <a class="collapse-item" href="/affairs/ad/all">عرض الإعلانات</a>
+                </div>
+            </div>
+        </li>
         <!-- Divider -->
         <hr class="sidebar-divider">
 
@@ -363,7 +378,10 @@
     <!-- Page level custom scripts -->
     <script src="djs/demo/chart-area-demo.js"></script>
     <script src="djs/demo/chart-pie-demo.js"></script>
-
+    <script>$('.datepicker').datepicker({
+            weekdaysShort: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            showMonthsShort: true
+        })</script>
 </div>
 </body>
 

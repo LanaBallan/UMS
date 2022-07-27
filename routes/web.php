@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdController;
 use App\Http\Controllers\MarkController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubjectController;
@@ -110,7 +111,15 @@ Route::prefix('affairs')->name('affairs.')->group(function(){
         Route::get('/student/edit/{id}', [StudentController::class, 'edit']);
         Route::post('/student/edit/{id}',[StudentController::class, 'update'] );
 //////////////////////end of student routes////////////////
-//////////////////document requests routes/////////////////////
+/////////////////////ad routes/////////////////////////////
+        Route::get("/ad/add", [AdController::class, 'add']);
+        Route::post("/ad/store", [AdController::class, 'store']);
+        Route::get("/ad/all", [AdController::class, 'all']);
+        Route::get('/ad/delete/{id}', [AdController::class, 'delete']);
+        Route::get('/ad/edit/{id}', [AdController::class, 'edit']);
+        Route::post('/ad/edit/{id}',[AdController::class, 'update'] );
+////////////////////end of ad routes///////////////////////
+//////////////////document requests routes////////////////
         Route::get("/document-requests/all", [\App\Http\Controllers\RequestController::class, 'allAffairsDepartment']);
         Route::get('/document-requests/confirm/{id}', [\App\Http\Controllers\RequestController::class, 'confirmAffairsDepartment']);
         Route::get('/document-requests/details/{id}', [\App\Http\Controllers\RequestController::class, 'detailsAffairsDepartment']);
