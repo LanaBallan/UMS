@@ -14,7 +14,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>Exams Employees Login</title>
+    <title>تسجيل دخول الموظفين</title>
 
     <!-- Custom fonts for this template-->
     <link href="dvendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -49,17 +49,7 @@
 
             <!-- Right Side Of Navbar -->
             <ul class="navbar-nav ms-auto">
-                <!-- Authentication Links -->
-                @guest
-                    @if (Route::has('exams.login'))
-                        <li class="nav-item">
-                            <a class="nav-link" href="{{ route('exams.login') }}">{{ __('Login') }}</a>
-                        </li>
-                    @endif
 
-
-
-                @endguest
             </ul>
         </div>
     </div>

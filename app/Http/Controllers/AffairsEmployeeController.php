@@ -8,26 +8,29 @@ use Illuminate\Support\Facades\Auth;
 
 class AffairsEmployeeController extends Controller
 {
-    public function check(Request $request)
-    {
-
-
-        $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'exists:students_affairs_employees'],
-            'password' => ['required', 'string', 'min:8'],
-        ]);
-
-        $creds = $request->only('email', 'password');
-
-        if (Auth::guard('affairsEmployee')->attempt($creds)) {
-            return redirect()->route('affairs.home');
-        } else {
-            return redirect()->route('affairs.login')->with('fail', 'Incorrect Credentials');
-        }
-    }
     public function logout()
     {
         Auth::guard('affairsEmployee')->logout();
-        return redirect("/");
+        return redirect()->route('affairs.login');
+    }
+    public function home()
+    {
+        $requests= \App\Models\Request::with('get_student')->where([
+            ['requests.status','1'],
+            ['requests.type','=','وثيقة تسجيل']
+        ])->orWhere([
+            ['requests.status','1'],
+            ['requests.type','=','وثيقة دوام']])
+
+            ->orWhere([
+                ['requests.status','1'],
+                ['requests.type','=','مصدقة تخرج']])
+
+            ->orWhere([
+                ['requests.status','1'],
+                ['requests.type','=','حياة جامعية']])
+            ->get();
+
+        return view('Affairs Dashboard.Request.all',compact('requests'));
     }
 }

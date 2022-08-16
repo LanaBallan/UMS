@@ -6,14 +6,26 @@
 
         <h1 class="text-center">إضافة علامة</h1>
 
-        <form action="/exams/mark/store" method="POST" enctype="multipart/form-data">
+            <form action="/exams/mark/store" method="Post">
+                @if(Session::get('Success'))
+                    <div class="alert alert-success">{{Session::get('Success')}}</div>
+                @endif
             @csrf
-            <div class="form-group">
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="form-group">
+                            <label for="mark">:العلامة</label>
+                            <input style="text-align: right" type="number" class="form-control" id="mark" placeholder="أدخل العلامة" name="mark" required>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <div class="form-group">
+                            <label for="student_id">:رقم الطالب</label>
+                            <input style="text-align: right" type="number" class="form-control" id="student_id" placeholder="أدخل رقم الطالب" name="student_id" required>
+                        </div>
+                    </div>
 
-                <input style="text-align: right" id="file" type="file" class="form-control form-control-user "
-                       name="file"  required
-                       placeholder="Personal Photo" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
-            </div>
+                </div>
             <div class="form-group row">
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
@@ -27,7 +39,7 @@
                 </div>
                 <div class="col-sm-6 mb-3 mb-sm-0">
                     <div class="form-group">
-                        <label for="mark_type">نوع العلامة</label>
+                        <label for="mark_type">:نوع العلامة</label>
                         <select style="text-align: right" class="form-control" name="mark_type" id="mark_type">
 
                             <option value="عملي">عملي</option>

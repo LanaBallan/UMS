@@ -18,14 +18,11 @@ class CreateUniInfosTable extends Migration
             $table->bigInteger('student_id');
             $table->Year('year');
             $table->integer('current_year');
+            $table->float('yearly_avg')->default(0);
+            $table->float('total_avg')->default(0);
             $table->Integer('total_failed_year');
             $table->enum('status', ['منقول','ناجح','راسب']);
             $table->enum('specialization', ['برمجيات','ذكاء','شبكات','علوم اساسية']);
-
-
-
-
-
             $table->timestamps();
         });
     }

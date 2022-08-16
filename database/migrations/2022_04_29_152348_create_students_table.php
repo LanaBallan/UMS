@@ -20,12 +20,12 @@ class CreateStudentsTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->bigInteger('phone');
+            $table->integer('class')->nullable();
             $table->bigInteger('point')->default(0);
             $table->binary('photo');
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

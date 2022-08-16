@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\EditLog;
 use App\Models\ExamsEmployee;
 use App\Models\StudentsAffairsEmployee;
 use App\Models\User;
@@ -69,24 +70,34 @@ else
 }
 
     }
-    public function check(Request $request)
-    {
-        $request->validate([
-            'email' => ['required', 'string', 'email', 'max:255', 'exists:users'],
-            'password' => ['required', 'string', 'min:8'],
-        ]);
-        $creds=$request->only('email','password');
-        if(Auth::attempt($creds)){
-            return redirect()->route('manager.home');
-        }
-        else{
-            return redirect()->route('manager.login')->with('fail','Incorrect Credentials');
-        }
-
-    }
     public function logout()
     {
         Auth::logout();
-        return redirect("/");
+        return redirect()->route('manager.login');
+    }
+    public function home()
+    {
+        $edits1=EditLog::join('exams_employees','exams_employees.id','=','edit_logs.employee_id')
+            ->join('marks', 'marks.id', '=', 'edit_logs.mark_id')
+            ->join('students', 'students.id', '=', 'marks.student_id')
+            ->join('subjects', 'subjects.id', '=', 'marks.subject_id')
+            ->select('students.f_name as studentFname','students.l_name as studentLname','students.id as studentId'
+                ,'subjects.name as subjectName','marks.total_mark','marks.theoretical_mark'
+                ,'marks.practical_mark',
+                'edit_logs.date','edit_logs.edit_pic','exams_employees.f_name','exams_employees.l_name')
+            ->get();
+        $edits2=EditLog::join('users','users.id','=','edit_logs.employee_id')
+            ->join('marks', 'marks.id', '=', 'edit_logs.mark_id')
+            ->join('students', 'students.id', '=', 'marks.student_id')
+            ->join('subjects', 'subjects.id', '=', 'marks.subject_id')
+            ->select('students.f_name as studentFname','students.l_name as studentLname','students.id as studentId'
+                ,'subjects.name as subjectName','marks.total_mark','marks.theoretical_mark'
+                ,'marks.practical_mark',
+                'edit_logs.date','edit_logs.edit_pic','users.f_name','users.l_name')
+            ->get();
+        $edits=$edits1->union($edits2);
+
+
+        return view('Manager Dashboard.Mark.editLog',compact('edits'));
     }
 }

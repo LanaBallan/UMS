@@ -31,13 +31,14 @@
                         <div class="col-sm-6 mb-3 mb-sm-0">
                             <div class="form-group">
                                 <label for="max_practical">:علامة العملي العظمى</label>
-                                <input style="text-align: right" type="number" class="form-control" id="max_practical"  name="max_practical" required>
+                                <input style="text-align: right" type="number" class="form-control" id="max_practical"  placeholder="أدخل علامة العملي العظمى"
+                                       name="max_practical" required>
                             </div>
                         </div>
                         <div class="col-sm-6 mb-3 mb-sm-0">
                         <div class="form-group">
                             <label for="max_theoretical">:علامة النظري العظمى</label>
-                            <input style="text-align: right" type="number" class="form-control" id="max_theoretical"  name="max_theoretical" required>
+                            <input style="text-align: right" type="number" class="form-control" id="max_theoretical"  placeholder="أدخل علامة النظري العظمى" name="max_theoretical" required>
                         </div>
                         </div>
                     </div>

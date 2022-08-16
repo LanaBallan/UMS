@@ -20,6 +20,8 @@ class Uni_info extends Model
         'student_id',
         'year',
         'current_year',
+        'yearly_avg',
+        'total_avg',
         'total_failed_year',
         'status',
         'specialization',
